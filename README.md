@@ -4,7 +4,7 @@ Admin Panel – Event Management System
 Features to Implement:
 
 1. Admin Authentication
-[] Admin login/logout (using Laravel).
+[X] Admin login/logout (using Laravel).
 [] Password reset functionality.
 
 2. Dashboard
