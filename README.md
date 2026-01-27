@@ -31,7 +31,7 @@ Features to Implement:
 [] List of registrations (user name, email, phone, event).
 [] Filter by event.
 [] Option to export registrations (CSV/Excel).
-```
+
  
 📌 Database Tables
 admins (id, name, email, password, created_at, updated_at)
@@ -39,3 +39,4 @@ categories (id, name, created_at, updated_at)
 events (id, title, description, category_id, date, time, location, image, created_at, updated_at)
 users (id, name, email, password, created_at, updated_at)
 registrations (id, user_id, event_id, name, email, phone, created_at, updated_at)
+```
