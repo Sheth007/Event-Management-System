@@ -54,7 +54,11 @@ class adminLoginController extends Controller
     function logout()
     {
         // session pull
-        session()->pull('admin_email');
+        // session()->pull('admin_email');
+
+        session()->forget('admin_email');
+
+        session()->flush();
 
         // delete the cookies
         // return response()->view('login')->cookie('user_name', null, -1);
