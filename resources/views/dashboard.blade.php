@@ -50,7 +50,7 @@
         <nav>
             <ul>
                 <li><a href="#home">Total Events</a></li>
-                <li><a href="#news">Total Users</a></li>
+                <li><a href="{{ route('totalUsers') }}">Total Users</a></li>
                 <li><a href="#contact">Total Registrations</a></li>
                 <li><a href="#about">Recent events & registrations summary</a></li>
                 <li><a href="{{ route('logout.controller') }}">Logout</a></li>

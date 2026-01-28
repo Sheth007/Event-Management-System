@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\adminLoginController;
+use App\Http\Controllers\totalUser;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,3 +19,7 @@ Route::get('/logout', [adminLoginController::class, 'logout'])->name('logout.con
 Route::view('adminPasswordReset', 'adminPasswordReset');
 
 Route::post('/adminPasswordReset', [adminLoginController::class, 'resetPassword'])->name('adminPassword.reset');
+
+// Route::view('totalUsers', 'totalUsers');
+
+Route::get('/totalUsers', [totalUser::class, 'display'])->name('totalUsers');

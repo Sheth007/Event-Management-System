@@ -10,7 +10,7 @@ Features to Implement:
 
 2. Dashboard
 [] Total Events
-[] Total Users
+[X] Total Users
 [] Total Registrations
 [] Recent events & registrations summary.
 
