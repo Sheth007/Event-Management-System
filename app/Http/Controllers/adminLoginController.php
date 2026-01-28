@@ -19,7 +19,14 @@ class adminLoginController extends Controller
         if ($user && Hash::check($password, $user->password)) {
             Auth::loginUsingId($user->id);
 
-            return view('welcome');
+            // new session
+            $request->session()->put('admin_email', $email);
+
+            // to set the cookies
+            // return response()->view('profile')->withCookie(cookie('name', 'user_name', 60));
+
+            return view('dashboard');
+            die;
         } else {
             return redirect()->route('adminLogin')->withErrors(['email' => 'Invalid email or password']);
         }
@@ -27,23 +34,48 @@ class adminLoginController extends Controller
 
     function newUser()
     {
-        $name = 'Admin User';  // You can change this as needed
-        $email = 'admin@admin.com';  // You can change this as needed
-        $password = 'admin';  // You can change this as needed
+        $name = 'Admin User';
+        $email = 'admin@admin.com';
+        $password = 'admin';
 
-        // Hash the password using bcrypt
         $hashedPassword = Hash::make($password);
 
-        // Insert the new user into the 'admins' table
         DB::table('admins')->insert([
-            'name' => $name,  // Add the name to the users table
-            'email' => $email,  // Add the email to the users table
-            'password' => $hashedPassword,  // Add the hashed password to the users table
-            'created_at' => now(),  // Set the created_at timestamp
-            'updated_at' => now()   // Set the updated_at timestamp
+            'name' => $name,
+            'email' => $email,
+            'password' => $hashedPassword,
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
-        // Optionally, return a success message or redirect to another page
-        return "New admin user created successfully!";
+        return "New admin created successfully!";
+    }
+
+    function logout()
+    {
+        // session pull
+        session()->pull('admin_email');
+
+        // delete the cookies
+        // return response()->view('login')->cookie('user_name', null, -1);
+
+        return view('adminLogin');
+    }
+
+    function resetPassword(Request $request)
+    {
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $enc_password = bcrypt($password);
+
+        $affected = DB::table('admins')
+            ->where('email', $email)
+            ->update(['password' => $enc_password]);
+
+        if ($affected) {
+            return redirect()->route('adminLogin');
+        } else {
+            return view('adminPasswordReset');
+        }
     }
 }

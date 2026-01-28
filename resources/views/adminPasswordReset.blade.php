@@ -1,6 +1,6 @@
 <div>
     <div class="container">
-        <form action="{{ route('adminLogin') }}" method="post">
+        <form action="{{ route('adminPassword.reset') }}" method="post">
             @csrf
             <input type="text" name="email" placeholder="enter email" required>
             <br>
@@ -8,9 +8,9 @@
             <input type="text" name="password" placeholder="enter password" required>
             <br>
             <br>
-            <button type="submit">Login</button>
+            <button type="submit">Reset password</button>
 
-            <p>Forgot password? <a href="{{ route('adminPassword.reset') }}">Reset It</a></p>
+            <p>Got you missing password? <a href="{{ route('adminLogin') }}">Login Now</a></p>
         </form>
     </div>
 </div>
