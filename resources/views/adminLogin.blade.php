@@ -1,5 +1,6 @@
 <div>
     <div class="container">
+        <h1>admin | login</h1>
         <form action="{{ route('adminLogin') }}" method="post">
             @csrf
             <input type="text" name="email" placeholder="enter email" required>
