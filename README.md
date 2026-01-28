@@ -5,10 +5,10 @@ Features to Implement:
 
 1. Admin Authentication
 [X] Admin login/logout (using Laravel).
-[] Password reset functionality.
+[X] Only using sessions(added).
+[X] Password reset functionality.
 
 2. Dashboard
-[] Show key stats:
 [] Total Events
 [] Total Users
 [] Total Registrations
