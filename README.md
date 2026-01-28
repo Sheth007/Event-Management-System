@@ -9,7 +9,7 @@ Features to Implement:
 [X] Password reset functionality.
 
 2. Dashboard
-[] Total Events
+[X] Total Events
 [X] Total Users
 [] Total Registrations
 [] Recent events & registrations summary.
@@ -19,8 +19,8 @@ Features to Implement:
 [] Example: "Conference", "Workshop", "Webinar".
 
 4. Event Management (CRUD)
-[] Add/Edit/Delete events.
-[] Fields: Title, Description, Category, Date, Time, Location, Image Upload.
+[X] Add/Edit/Delete events.
+[X] Fields: Title, Description, Category, Date, Time, Location, Image Upload.
 [] Grid (Pagination + Search).
 
 5. User Management
@@ -34,9 +34,9 @@ Features to Implement:
 
  
 📌 Database Tables
-admins (id, name, email, password, created_at, updated_at)
-categories (id, name, created_at, updated_at)
-events (id, title, description, category_id, date, time, location, image, created_at, updated_at)
-users (id, name, email, password, created_at, updated_at)
-registrations (id, user_id, event_id, name, email, phone, created_at, updated_at)
+[X] admins (id, name, email, password, created_at, updated_at)
+[X] categories (id, name, created_at, updated_at)
+[X] events (id, title, description, category_id, date, time, location, image, created_at, updated_at)
+[X] users (id, name, email, password, created_at, updated_at)
+[X] registrations (id, user_id, event_id, name, email, phone, created_at, updated_at)
 ```
