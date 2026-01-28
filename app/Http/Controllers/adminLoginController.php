@@ -70,7 +70,7 @@ class adminLoginController extends Controller
 
         $affected = DB::table('admins')
             ->where('email', $email)
-            ->update(['password' => $enc_password]);
+            ->update(['password' => $enc_password, 'updated_at' => now()]);
 
         if ($affected) {
             return redirect()->route('adminLogin');
