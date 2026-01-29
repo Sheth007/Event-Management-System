@@ -15,8 +15,8 @@ Features to Implement:
 [] Recent events & registrations summary.
 
 3. Category Management (CRUD)
-[] Add/Edit/Delete categories.
-[] Example: "Conference", "Workshop", "Webinar".
+[X] Add/Edit/Delete categories.
+[X] Example: "Conference", "Workshop", "Webinar".
 
 4. Event Management (CRUD)
 [X] Add/Edit/Delete events.
