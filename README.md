@@ -11,7 +11,7 @@ Features to Implement:
 2. Dashboard
 [X] Total Events
 [X] Total Users
-[] Total Registrations
+[X] Total Registrations
 [] Recent events & registrations summary.
 
 3. Category Management (CRUD)
@@ -25,14 +25,13 @@ Features to Implement:
 
 5. User Management
 [X] View list of registered users.
-[] Show their registration details (if any).
+[X] Show their registration details (if any).
 
 6. Registration Management
-[] List of registrations (user name, email, phone, event).
+[X] List of registrations (user name, email, phone, event).
 [] Filter by event.
-[] Option to export registrations (CSV/Excel).
+[X] Option to export registrations (𝖢̶𝖲̶𝖵̶/Excel).
 
- 
 📌 Database Tables
 [X] admins (id, name, email, password, created_at, updated_at)
 [X] categories (id, name, created_at, updated_at)
@@ -42,4 +41,5 @@ Features to Implement:
 
 🌐 External Libraries
 [X] Laravel/Scout
+[X] maatwebsite/excel
 ```
