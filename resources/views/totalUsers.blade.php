@@ -26,6 +26,7 @@
 
 <body>
     <center>
+        <h1>ADmin | Users</h1>
         <div class="container">
             <table class="table" border="1">
                 <tr>

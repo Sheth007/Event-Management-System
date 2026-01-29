@@ -26,6 +26,7 @@
 
 <body>
     <center>
+        <h1>Admin | events</h1>
         <div class="container">
             <form action="" method="get">
                 <input type="text" name="search" id="search" placeholder="Search..."
