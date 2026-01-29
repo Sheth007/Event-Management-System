@@ -3,6 +3,7 @@
 use App\Http\Controllers\adminLoginController;
 use App\Http\Controllers\eventController;
 use App\Http\Controllers\totalUser;
+use App\Models\events;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -27,12 +28,14 @@ Route::view('/events', 'events');
 
 Route::view('/addNewEvent', 'addNewEvent')->name('ane');
 
-Route::post('/events', [eventController::class, 'newEvent'])->name('addEvent');
+Route::post('/addEvents', [eventController::class, 'newEvent'])->name('addEvents');
 
-Route::get('/events', [eventController::class, 'displayTotalEvents'])->name('displayallevents');
+Route::get('/event', [eventController::class, 'displayTotalEvents'])->name('displayallevents');
 
 Route::delete('/events/{id}', [EventController::class, 'delete'])->name('eventDelete');
 
 Route::get('/events/{id}', [eventController::class, 'eventEdit'])->name('eventEdit');
 
-Route::post('/events', [eventController::class, 'updateEvent'])->name('updateEvent');
+Route::put('/events', [eventController::class, 'updateEvent'])->name('updateEvent');
+
+Route::get('/events', [eventController::class, 'searchEvents']);

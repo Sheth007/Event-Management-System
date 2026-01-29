@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="{{ route('addEvent') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('addEvents') }}" method="post" enctype="multipart/form-data">
         @csrf
         <input type="text" placeholder="enter title" name="title">
         <br>

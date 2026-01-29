@@ -85,7 +85,7 @@
                 @endforeach
             </table>
         </div>
-        {{ $events->links() }}
+        {{-- {{ $events->links() }} --}}
     </center>
 </body>
 
