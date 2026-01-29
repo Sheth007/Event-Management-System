@@ -3,6 +3,7 @@
 use App\Http\Controllers\adminLoginController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\eventController;
+use App\Http\Controllers\registrationController;
 use App\Http\Controllers\totalUser;
 use App\Models\events;
 use Illuminate\Support\Facades\Route;
@@ -68,3 +69,11 @@ Route::put('/UpdateCategoryData', [categoryController::class, 'updateCategoryDat
 Route::delete('/DeleteCategory/{id}', [categoryController::class, 'deleteCategory'])->name('delete.Category');
 
 // ---------- CATEGORIES ENDS ----------
+
+// ---------- REGISTRATION STARTS ----------
+
+Route::get('/showRegistrations', [registrationController::class, 'diaplyRegistration'])->name('displyall.registrations');
+
+Route::get('registration/export/', [registrationController::class, 'excelExport'])->name('export');
+
+// ---------- REGISTRATION ENDS ----------

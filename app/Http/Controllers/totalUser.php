@@ -10,9 +10,6 @@ class totalUser extends Controller
 {
     function display(Request $request)
     {
-        // $users = user::all();
-        // return view('totalUsers', compact('users'));
-
         return view('totalUsers', [
             'users' => DB::table('users')->paginate(15)
         ]);
