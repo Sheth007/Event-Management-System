@@ -21,7 +21,7 @@ Features to Implement:
 4. Event Management (CRUD)
 [X] Add/Edit/Delete events.
 [X] Fields: Title, Description, Category, Date, Time, Location, Image Upload.
-[] Grid (Pagination + Search).
+[X] Grid (Pagination + Search).
 
 5. User Management
 [] View list of registered users.
