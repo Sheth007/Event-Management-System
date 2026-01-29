@@ -24,7 +24,7 @@ Features to Implement:
 [X] Grid (Pagination + Search).
 
 5. User Management
-[] View list of registered users.
+[X] View list of registered users.
 [] Show their registration details (if any).
 
 6. Registration Management
