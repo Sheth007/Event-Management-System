@@ -39,4 +39,7 @@ Features to Implement:
 [X] events (id, title, description, category_id, date, time, location, image, created_at, updated_at)
 [X] users (id, name, email, password, created_at, updated_at)
 [X] registrations (id, user_id, event_id, name, email, phone, created_at, updated_at)
+
+🌐 External Libraries
+[X] Laravel/Scout
 ```
