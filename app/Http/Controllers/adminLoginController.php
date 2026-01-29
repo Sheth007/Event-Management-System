@@ -53,17 +53,13 @@ class adminLoginController extends Controller
 
     function logout()
     {
-        // session pull
-        // session()->pull('admin_email');
-
+        // Clear specific session data
         session()->forget('admin_email');
-
         session()->flush();
+        session()->forget('url.intended');
 
-        // delete the cookies
-        // return response()->view('login')->cookie('user_name', null, -1);
-
-        return view('adminLogin');
+        // REDIRECT to the URL, don't just return the view
+        return redirect('/admin');
     }
 
     function resetPassword(Request $request)
