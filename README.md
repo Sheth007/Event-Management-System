@@ -12,7 +12,7 @@ Features to Implement:
 [X] Total Events
 [X] Total Users
 [X] Total Registrations
-[] Recent events & registrations summary.
+[X] Recent events & registrations summary.
 
 3. Category Management (CRUD)
 [X] Add/Edit/Delete categories.
