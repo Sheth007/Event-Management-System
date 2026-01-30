@@ -42,4 +42,5 @@ Features to Implement:
 🌐 External Libraries
 [X] Laravel/Scout
 [X] maatwebsite/excel
+[X] LiveWire PowerGrid
 ```
