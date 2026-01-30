@@ -6,12 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Amin | Total Events</title>
+
+    @livewireStyles
+
+
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    {{--
+    <script src="https://cdn.tailwindcss.com"></script> --}}
+
+    {{--
+    <link href="vendor/power-components/livewire-powergrid/resources/css/bootstrap5.css" rel="stylesheet"> --}}
+    {{--
+    <link rel="stylesheet"
+        href="D:/Event-Management-System/vendor/power-components/livewire-powergrid/resources/css/bootstrap5.css"> --}}
 </head>
 <style>
     body {
         transform: scale(0.9);
     }
 
+    /* 
     .w-5.h-5 {
         height: 50px;
         width: auto;
@@ -26,11 +43,17 @@
     img {
         width: 100%;
         height: 20vh;
-    }
+    } */
 </style>
 
 <body>
-    <center>
+    @livewire('event')
+
+    @livewireScripts
+
+    <!-- PowerGrid JavaScript -->
+    <script src="{{ asset('vendor/power-components/livewire-powergrid/js/powergrid.js') }}"></script>
+    {{-- <center>
         <h1>Admin | events</h1>
         <a href="{{ route('diaplyRecent.events') }}"><button>View Recent Event</button></a>
         <div class="container">
@@ -56,44 +79,44 @@
                     <td><a href="{{ route('ane') }}"><button>Add New Event</button></a></td>
                 </tr>
                 @foreach ($events as $event)
-                    <tr>
-                        <td>{{$event->id}}</td>
-                        <td>{{$event->title}}</td>
-                        <td>{{$event->description}}</td>
-                        <td>{{$event->category_id}}</td>
-                        <td>{{$event->date}}</td>
-                        <td>{{$event->time}}</td>
-                        <td>{{$event->location}}</td>
-                        <td>
-                            <html>
+                <tr>
+                    <td>{{$event->id}}</td>
+                    <td>{{$event->title}}</td>
+                    <td>{{$event->description}}</td>
+                    <td>{{$event->category_id}}</td>
+                    <td>{{$event->date}}</td>
+                    <td>{{$event->time}}</td>
+                    <td>{{$event->location}}</td>
+                    <td>
+                        <html>
 
-                            <body>
-                                <img src="{{ asset('storage/' . $event->image) }}" alt="images">
-                            </body>
+                        <body>
+                            <img src="{{ asset('storage/' . $event->image) }}" alt="images">
+                        </body>
 
-                            </html>
-                        </td>
-                        <td>{{$event->created_at}}</td>
-                        <td>{{$event->updated_at}}</td>
-                        <td>
-                            <form method="get" action="{{ route('eventEdit', $event->id) }}">
-                                @csrf
-                                <button>Update</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form method="post" action="{{ route('eventDelete', $event->id) }}">
-                                @csrf
-                                @method('DELETE')
-                                <button>Delete</button>
-                            </form>
-                        </td>
-                    </tr>
+                        </html>
+                    </td>
+                    <td>{{$event->created_at}}</td>
+                    <td>{{$event->updated_at}}</td>
+                    <td>
+                        <form method="get" action="{{ route('eventEdit', $event->id) }}">
+                            @csrf
+                            <button>Update</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" action="{{ route('eventDelete', $event->id) }}">
+                            @csrf
+                            @method('DELETE')
+                            <button>Delete</button>
+                        </form>
+                    </td>
+                </tr>
                 @endforeach
             </table>
         </div>
         {{ $events->links() }}
-    </center>
+    </center> --}}
 </body>
 
 </html>

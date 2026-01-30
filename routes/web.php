@@ -12,6 +12,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+use App\Livewire\Event;
+
+// Route::get('/abcd', Event::class);
+
+Route::get('/events', function () {
+    return view('events.index');  // Rendering the Blade view that includes the Livewire component
+});
+
 // ---------- ADMIN STARTS ----------
 
 Route::view('admin', 'adminLogin');
