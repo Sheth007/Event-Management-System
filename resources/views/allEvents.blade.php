@@ -22,11 +22,17 @@
         padding: 10px;
         text-align: center;
     }
+
+    img {
+        width: 100%;
+        height: 20vh;
+    }
 </style>
 
 <body>
     <center>
         <h1>Admin | events</h1>
+        <a href="{{ route('diaplyRecent.events') }}"><button>View Recent Event</button></a>
         <div class="container">
             <form action="" method="get">
                 <input type="text" name="search" id="search" placeholder="Search..."

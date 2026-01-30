@@ -28,7 +28,11 @@
     @if (session('admin_email'))
         <center>
             <h1>Admin \ event registration</h1>
-            <a href="{{ route('export') }}"><button>Export</button></a>
+            <a href="{{ route('recent.event.and.regi') }}"><button>View Recent Events</button></a>
+            &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;
+            <a href="{{ route('export') }}"><button>Export Data</button></a>
+            <br><br>
             <table border="1">
                 <tr>
                     <td>Id</td>

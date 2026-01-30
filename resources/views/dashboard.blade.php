@@ -52,7 +52,7 @@
                 <li><a href="{{ route('displayallevents') }}">Total Events</a></li>
                 <li><a href="{{ route('viewall.Category') }}">Category Management</a></li>
                 <li><a href="{{ route('displyall.registrations') }}">Total Registrations</a></li>
-                <li><a href="#about">Recent events & registrations summary</a></li>
+                {{-- <li><a href="#about">Recent events & registrations summary</a></li> --}}
                 <li><a href="{{ route('logout.controller') }}">Logout</a></li>
             </ul>
         </nav>

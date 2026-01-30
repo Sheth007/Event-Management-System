@@ -48,6 +48,8 @@ Route::put('/events', [eventController::class, 'updateEvent'])->name('updateEven
 
 Route::get('/events', [eventController::class, 'searchEvents']);
 
+Route::get('/recentEvents', [eventController::class, 'recentEvents'])->name('diaplyRecent.events');
+
 // ---------- EVENTS ENDS ----------
 
 // ---------- CATEGORIES START ----------
@@ -73,6 +75,8 @@ Route::delete('/DeleteCategory/{id}', [categoryController::class, 'deleteCategor
 // ---------- REGISTRATION STARTS ----------
 
 Route::get('/showRegistrations', [registrationController::class, 'diaplyRegistration'])->name('displyall.registrations');
+
+Route::get('/reventEvnets', [registrationController::class, 'recentEventsRegi'])->name('recent.event.and.regi');
 
 Route::get('registration/export/', [registrationController::class, 'excelExport'])->name('export');
 
