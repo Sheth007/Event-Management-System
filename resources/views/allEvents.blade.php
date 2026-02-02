@@ -4,119 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Amin | Total Events</title>
-
-    @livewireStyles
-
-
-    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-    {{--
-    <script src="https://cdn.tailwindcss.com"></script> --}}
-
-    {{--
-    <link href="vendor/power-components/livewire-powergrid/resources/css/bootstrap5.css" rel="stylesheet"> --}}
-    {{--
-    <link rel="stylesheet"
-        href="D:/Event-Management-System/vendor/power-components/livewire-powergrid/resources/css/bootstrap5.css"> --}}
+    <title>Admin | Total Events</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
-    body {
-        transform: scale(0.9);
-    }
-
-    /* 
     .w-5.h-5 {
-        height: 50px;
+        height: 10px;
         width: auto;
     }
-
-    td {
-        background-color: aliceblue;
-        padding: 10px;
-        text-align: center;
-    }
-
-    img {
-        width: 100%;
-        height: 20vh;
-    } */
 </style>
 
 <body>
-    @livewire('event')
+    <div class="container mt-5">
+        <center>
+            <h1>Admin | Events</h1>
+            <!-- Buttons for Viewing Recent Event and Creating New Event -->
+            <a href="{{ route('diaplyRecent.events') }}">
+                <button class="btn btn-primary mb-3">View Recent Event</button>
+            </a>
+            <a href="{{ route('ane') }}">
+                <button class="btn btn-success mb-3">Create New Event</button>
+            </a>
 
-    @livewireScripts
-
-    <!-- PowerGrid JavaScript -->
-    <script src="{{ asset('vendor/power-components/livewire-powergrid/js/powergrid.js') }}"></script>
-    {{-- <center>
-        <h1>Admin | events</h1>
-        <a href="{{ route('diaplyRecent.events') }}"><button>View Recent Event</button></a>
-        <div class="container">
-            <form action="" method="get">
-                <input type="text" name="search" id="search" placeholder="Search..."
-                    value="{{ request()->get('search') }}">
-                <button type="submit">search</button>
+            {{-- Search Form --}}
+            <form action="{{ route('search.events') }}" method="get" class="mb-3">
+                <input type="text" name="search" id="search" class="form-control" placeholder="Search...">
+                <button type="submit" class="btn btn-success mt-2">Search</button>
             </form>
-            <table class="table" border="1">
-                <tr>
-                    <td>Id</td>
-                    <td>title</td>
-                    <td>description</td>
-                    <td>category_id</td>
-                    <td>date</td>
-                    <td>time</td>
-                    <td>location</td>
-                    <td>image</td>
-                    <td>created time</td>
-                    <td>updated_time</td>
-                    <td>Update</td>
-                    <td>Delete</td>
-                    <td><a href="{{ route('ane') }}"><button>Add New Event</button></a></td>
-                </tr>
+
+            <!-- Events Grid -->
+            <div class="row">
                 @foreach ($events as $event)
-                <tr>
-                    <td>{{$event->id}}</td>
-                    <td>{{$event->title}}</td>
-                    <td>{{$event->description}}</td>
-                    <td>{{$event->category_id}}</td>
-                    <td>{{$event->date}}</td>
-                    <td>{{$event->time}}</td>
-                    <td>{{$event->location}}</td>
-                    <td>
-                        <html>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="{{ asset('storage/' . $event->image) }}" class="card-img-top" alt="Event Image">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $event->title }}</h5>
+                                <p class="card-text">{{ $event->description }}</p>
+                                <p><strong>Category:</strong> {{ $event->category_id }}</p>
+                                <p><strong>Date:</strong> {{ $event->date }}</p>
+                                <p><strong>Time:</strong> {{ $event->time }}</p>
+                                <p><strong>Location:</strong> {{ $event->location }}</p>
+                                <p><strong>Created At:</strong> {{ $event->created_at }}</p>
+                                <p><strong>Updated At:</strong> {{ $event->updated_at }}</p>
 
-                        <body>
-                            <img src="{{ asset('storage/' . $event->image) }}" alt="images">
-                        </body>
+                                <div class="d-flex justify-content-between">
+                                    <form method="get" action="{{ route('eventEdit', $event->id) }}">
+                                        @csrf
+                                        <button class="btn btn-warning">Update</button>
+                                    </form>
 
-                        </html>
-                    </td>
-                    <td>{{$event->created_at}}</td>
-                    <td>{{$event->updated_at}}</td>
-                    <td>
-                        <form method="get" action="{{ route('eventEdit', $event->id) }}">
-                            @csrf
-                            <button>Update</button>
-                        </form>
-                    </td>
-                    <td>
-                        <form method="post" action="{{ route('eventDelete', $event->id) }}">
-                            @csrf
-                            @method('DELETE')
-                            <button>Delete</button>
-                        </form>
-                    </td>
-                </tr>
+                                    <form method="post" action="{{ route('eventDelete', $event->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
-            </table>
-        </div>
-        {{ $events->links() }}
-    </center> --}}
+            </div>
+
+            <!-- Pagination Links -->
+            {{ $events->links() }}
+        </center>
+    </div>
+
+    <!-- Add Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

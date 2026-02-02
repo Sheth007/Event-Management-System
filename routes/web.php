@@ -16,9 +16,9 @@ use App\Livewire\Event;
 
 // Route::get('/abcd', Event::class);
 
-Route::get('/events', function () {
-    return view('events.index');  // Rendering the Blade view that includes the Livewire component
-});
+// Route::get('/events', function () {
+//     return view('events.index');  // Rendering the Blade view that includes the Livewire component
+// });
 
 // ---------- ADMIN STARTS ----------
 
@@ -56,7 +56,7 @@ Route::get('/events/{id}', [eventController::class, 'eventEdit'])->name('eventEd
 
 Route::put('/events', [eventController::class, 'updateEvent'])->name('updateEvent');
 
-Route::get('/events', [eventController::class, 'searchEvents']);
+Route::get('/events', [eventController::class, 'searchEvents'])->name('search.events');
 
 Route::get('/recentEvents', [eventController::class, 'recentEvents'])->name('diaplyRecent.events');
 

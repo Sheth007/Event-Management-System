@@ -28,14 +28,14 @@ class registrationController extends Controller
         // the source of below is https://www.interserver.net/tips/kb/tracking-and-summarizing-data-with-custom-queries-in-laravel/
 
         // this below is for a whole week from curent date
-        // $recent = DB::table('registrations')->where('created_at', '>=', Carbon::now()->subWeek())->get();
+        $recent = DB::table('registrations')->where('created_at', '>=', Carbon::now()->subWeek())->paginate(10);
 
         // this is for past 24 hours ago
         // without paginate
         // $recent = DB::table('registrations')->where('created_at', '>=', Carbon::now()->subDay())->get();
 
         //with paginate
-        $recent = DB::table('registrations')->where('created_at', '>=', Carbon::now()->subDay())->paginate(10);
+        // $recent = DB::table('registrations')->where('created_at', '>=', Carbon::now()->subDay())->paginate(10);
 
         // pass the data with the cmpact function
         // return view('recent_events_regi_summury', compact('recent'));
