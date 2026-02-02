@@ -29,7 +29,7 @@ Features to Implement:
 
 6. Registration Management
 [X] List of registrations (user name, email, phone, event).
-[] Filter by event.
+[X] Filter by event.
 [X] Option to export registrations (𝖢̶𝖲̶𝖵̶/Excel).
 
 📌 Database Tables
