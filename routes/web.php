@@ -22,7 +22,9 @@ Route::get('/events', function () {
 
 // ---------- ADMIN STARTS ----------
 
-Route::view('admin', 'adminLogin');
+// Route::view('admin', 'adminLogin');
+
+Route::view('admin', 'adminLogin')->name('login');
 
 Route::post('/admin', [adminLoginController::class, 'Validate'])->name('adminLogin');
 

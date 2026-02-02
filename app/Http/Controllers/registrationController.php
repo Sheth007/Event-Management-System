@@ -49,28 +49,6 @@ class registrationController extends Controller
 
     function filterEvents(Request $request)
     {
-        // $validated = $request->validate([
-        //     'event' => 'required|in:1,2,3',
-        // ]);
-
-        // $event = $validated['event'];
-
-        // if ($event == 1) {
-        //     return view('eventRegistration', [
-        //         'registration' => DB::table('registrations')
-        //             ->where('event_id', $event)
-        //             ->paginate(10)
-        //     ]);
-        // }
-
-        // if ($event == 2) {
-        //     return "Event selected: Webinar";
-        // }
-
-        // if ($event == 3) {
-        //     return "Event selected: Conference";
-        // }
-
         $validated = $request->validate([
             'event' => 'required|in:1,2,3',
         ]);
