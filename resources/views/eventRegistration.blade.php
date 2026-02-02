@@ -8,10 +8,6 @@
     <title>Admin | Event Registration</title>
 </head>
 <style>
-    body {
-        transform: scale(0.9);
-    }
-
     .w-5.h-5 {
         height: 50px;
         width: auto;
@@ -33,6 +29,20 @@
             &nbsp;&nbsp;&nbsp;
             <a href="{{ route('export') }}"><button>Export Data</button></a>
             <br><br>
+
+            <form action="{{ route('filter.events') }}" method="post">
+                <span>Filter by events :</span>
+                @csrf
+                <select name="event" id="event">
+                    <option value=""></option>
+                    <option name="event" value="1">Workshop</option>
+                    <option name="event" value="2">Webinar</option>
+                    <option name="event" value="3">Conferece</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+            <br><br>
+
             <table border="1">
                 <tr>
                     <td>Id</td>

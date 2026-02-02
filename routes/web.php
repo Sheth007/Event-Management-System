@@ -88,4 +88,6 @@ Route::get('/reventEvnets', [registrationController::class, 'recentEventsRegi'])
 
 Route::get('registration/export/', [registrationController::class, 'excelExport'])->name('export');
 
+Route::post('filterbyevents', [registrationController::class, 'filterEvents'])->name('filter.events');
+
 // ---------- REGISTRATION ENDS ----------
