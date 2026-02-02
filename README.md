@@ -1,45 +1,72 @@
-Admin Panel – Event Management System
- 
-```bash
-✔ Features to Implement:
+# Event Management System - Admin Panel
 
-1. Admin Authentication
-[X] Admin login/logout (using Laravel).
-[X] Only using sessions(added).
-[X] Password reset functionality.
+This is the **Admin Panel** for an Event Management System built with **Laravel**. Below is the list of features and tasks that have been implemented for the project.
 
-2. Dashboard
-[X] Total Events
-[X] Total Users
-[X] Total Registrations
-[X] Recent events & registrations summary.
+---
 
-3. Category Management (CRUD)
-[X] Add/Edit/Delete categories.
-[X] Example: "Conference", "Workshop", "Webinar".
+## ✔ Features to Implement
 
-4. Event Management (CRUD)
-[X] Add/Edit/Delete events.
-[X] Fields: Title, Description, Category, Date, Time, Location, Image Upload.
-[X] Grid (Pagination + Search).
+### 1. **Admin Authentication**
+- [x] Admin login/logout using Laravel
+- [x] Authentication via sessions
+- [x] Password reset functionality for admins
 
-5. User Management
-[X] View list of registered users.
-[X] Show their registration details (if any).
+### 2. **Dashboard**
+- [x] Display total events
+- [x] Display total users
+- [x] Display total registrations
+- [x] Show recent events and registrations summary
 
-6. Registration Management
-[X] List of registrations (user name, email, phone, event).
-[X] Filter by event.
-[X] Option to export registrations (𝖢̶𝖲̶𝖵̶/Excel).
+### 3. **Category Management (CRUD)**
+- [x] Add categories
+- [x] Edit categories
+- [x] Delete categories
+- [x] Example categories: "Conference", "Workshop", "Webinar"
 
-📌 Database Tables
-[X] admins (id, name, email, password, created_at, updated_at)
-[X] categories (id, name, created_at, updated_at)
-[X] events (id, title, description, category_id, date, time, location, image, created_at, updated_at)
-[X] users (id, name, email, password, created_at, updated_at)
-[X] registrations (id, user_id, event_id, name, email, phone, created_at, updated_at)
+### 4. **Event Management (CRUD)**
+- [x] Add events
+- [x] Edit events
+- [x] Delete events
+- [x] Event fields: 
+  - Title
+  - Description
+  - Category
+  - Date
+  - Time
+  - Location
+  - Image upload
+- [x] Display events in a grid with pagination
+- [x] Search functionality for events
 
-🌐 External Libraries
-[X] Laravel/Scout
-[X] maatwebsite/excel
-```
+### 5. **User Management**
+- [x] View registered users
+- [x] Show user registration details (if any)
+
+### 6. **Registration Management**
+- [x] List registrations (user name, email, phone, event)
+- [x] Filter registrations by event
+- [x] Export registrations to **CSV** or **Excel**
+
+---
+
+## ✔ Database Tables
+
+- [x] **Admins**: Stores admin information
+  - Fields: `id`, `name`, `email`, `password`, `created_at`, `updated_at`
+- [x] **Categories**: Stores event categories
+  - Fields: `id`, `name`, `created_at`, `updated_at`
+- [x] **Events**: Stores event information
+  - Fields: `id`, `title`, `description`, `category_id`, `date`, `time`, `location`, `image`, `created_at`, `updated_at`
+- [x] **Users**: Stores user information
+  - Fields: `id`, `name`, `email`, `password`, `created_at`, `updated_at`
+- [x] **Registrations**: Stores user event registration information
+  - Fields: `id`, `user_id`, `event_id`, `name`, `email`, `phone`, `created_at`, `updated_at`
+
+---
+
+## ✔ External Libraries
+
+- [x] **Laravel/Scout**: Full-text search functionality
+- [x] **maatwebsite/excel**: For exporting registrations to **CSV** or **Excel**
+
+---
