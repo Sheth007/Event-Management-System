@@ -1,7 +1,7 @@
 Admin Panel – Event Management System
  
-```
-Features to Implement:
+```bash
+✔ Features to Implement:
 
 1. Admin Authentication
 [X] Admin login/logout (using Laravel).
@@ -42,5 +42,4 @@ Features to Implement:
 🌐 External Libraries
 [X] Laravel/Scout
 [X] maatwebsite/excel
-[X] LiveWire PowerGrid
 ```
