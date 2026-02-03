@@ -6,74 +6,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin | Event Registration</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <!-- Bootstrap JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <style>
-    .w-5.h-5 {
-        height: 50px;
-        width: auto;
+    body {
+        /* transform: scale(0.9); */
+        font-family: Arial, sans-serif;
     }
 
-    td {
+    .table td {
         background-color: aliceblue;
-        padding: 10px;
+        padding: 12px;
         text-align: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #343a40;
+        margin-top: 20px;
+    }
+
+    .container {
+        margin-top: 30px;
+    }
+
+    .btn-custom {
+        margin-top: 10px;
+    }
+
+    .pagination {
+        justify-content: center;
     }
 </style>
 
 <body>
     @if (session('admin_email'))
-        <center>
-            <h1>Admin \ event registration</h1>
-            <a href="{{ route('recent.event.and.regi') }}"><button>View Recent Events</button></a>
-            &nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;
-            <a href="{{ route('export') }}"><button>Export Data</button></a>
-            <br><br>
+        <div class="container">
+            <center>
+                <h1>Admin | Event Registration</h1>
 
-            <form action="{{ route('filter.events') }}" method="post">
-                <span>Filter by events :</span>
-                @csrf
-                <select name="event" id="event">
-                    <option value=""></option>
-                    <option name="event" value="1">Workshop</option>
-                    <option name="event" value="2">Webinar</option>
-                    <option name="event" value="3">Conferece</option>
-                </select>
-                <button type="submit">Submit</button>
-            </form>
-            <br><br>
+                <!-- Navigation Buttons -->
+                <a href="{{ route('recent.event.and.regi') }}" class="btn btn-info btn-custom">View Recent Events</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="{{ route('export') }}" class="btn btn-success btn-custom">Export Data</a>
+                <br><br>
 
-            <table border="1">
-                <tr>
-                    <td>Id</td>
-                    <td>User_id</td>
-                    <td>Event_id</td>
-                    <td>name</td>
-                    <td>email</td>
-                    <td>phone</td>
-                    <td>created_at</td>
-                    <td>updated_at</td>
-                </tr>
-                @foreach ($registration as $reg)
-                    <tr>
-                        <td>{{ $reg->id }}</td>
-                        <td>{{ $reg->user_id }}</td>
-                        <td>{{ $reg->event_id }}</td>
-                        <td>{{ $reg->name }}</td>
-                        <td>{{ $reg->email }}</td>
-                        <td>{{ $reg->phone }}</td>
-                        <td>{{ $reg->created_at }}</td>
-                        <td>{{ $reg->updated_at }}</td>
-                    </tr>
-                @endforeach
-            </table>
-            {{ $registration->links() }}
-        </center>
+                <!-- Event Filter Form -->
+                <form action="{{ route('filter.events') }}" method="post" class="mb-4">
+                    <span>Filter by events: </span>
+                    @csrf
+                    <select name="event" id="event" class="form-select w-auto d-inline">
+                        <option value=""></option>
+                        <option name="event" value="1">Workshop</option>
+                        <option name="event" value="2">Webinar</option>
+                        <option name="event" value="3">Conference</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                </form>
+
+                <!-- Registration Table -->
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">User ID</th>
+                            <th scope="col">Event ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Created At</th>
+                            <th scope="col">Updated At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($registration as $reg)
+                            <tr>
+                                <td>{{ $reg->id }}</td>
+                                <td>{{ $reg->user_id }}</td>
+                                <td>{{ $reg->event_id }}</td>
+                                <td>{{ $reg->name }}</td>
+                                <td>{{ $reg->email }}</td>
+                                <td>{{ $reg->phone }}</td>
+                                <td>{{ $reg->created_at }}</td>
+                                <td>{{ $reg->updated_at }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    {{ $registration->links('pagination::bootstrap-5') }}
+                </div>
+            </center>
+        </div>
     @else
-        <center>
-            <h1>Try this 👉: <a href="{{ route('adminLogin') }}">Login</a></h1>
-        </center>
-
+        <div class="container mt-5">
+            <center>
+                <h1>Please <a href="{{ route('adminLogin') }}" class="btn btn-primary">Login</a> to access this page.</h1>
+            </center>
+        </div>
     @endif
 </body>
 

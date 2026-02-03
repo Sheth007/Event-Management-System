@@ -5,59 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Amin | update Events</title>
+    <title>Admin | Update Event</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <!-- Bootstrap JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-    <center>
-        <div class="container">
-            <form action="{{ route('updateEvent') }}" method="post" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                <input type="text" name="id" id="id" value="{{ $id }}" hidden>
-                <br><br>
+    <div class="container mt-5">
+        <h1 class="mb-4">Update Event</h1>
+        <form action="{{ route('updateEvent') }}" method="post" enctype="multipart/form-data" class="w-75">
+            @csrf
+            @method('PUT')
+            <input type="text" name="id" id="id" value="{{ $id }}" hidden>
 
-                <span>Event title: </span>
-                <input type="text" placeholder="Enter title" name="title" value="{{ old('title', $event->title) }}">
-                <br><br>
+            <div class="mb-3">
+                <label for="title" class="form-label">Event Title:</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter event title"
+                    value="{{ old('title', $event->title) }}">
+            </div>
 
-                <span>Event description: </span>
-                <input type="text" placeholder="Add event description" name="description"
-                    value="{{ old('description', $event->description) }}">
-                <br><br>
+            <div class="mb-3">
+                <label for="description" class="form-label">Event Description:</label>
+                <input type="text" class="form-control" id="description" name="description"
+                    placeholder="Add event description" value="{{ old('description', $event->description) }}">
+            </div>
 
-                <span>Event category ID: </span>
-                <input type="text" placeholder="Enter category ID" name="category_id"
-                    value="{{ old('category_id', $event->category_id) }}">
-                <br><br>
+            <div class="mb-3">
+                <label for="category_id" class="form-label">Event Category ID:</label>
+                <input type="text" class="form-control" id="category_id" name="category_id"
+                    placeholder="Enter category ID" value="{{ old('category_id', $event->category_id) }}">
+            </div>
 
-                <span>Event date: </span>
-                <input type="date" name="date" id="date" value="{{ old('date', $event->date) }}">
-                <br><br>
+            <div class="mb-3">
+                <label for="date" class="form-label">Event Date:</label>
+                <input type="date" class="form-control" id="date" name="date" value="{{ old('date', $event->date) }}">
+            </div>
 
-                <span>Event time: </span>
-                <input type="time" name="time" id="time" value="{{ old('time', $event->time) }}">
-                <br><br>
+            <div class="mb-3">
+                <label for="time" class="form-label">Event Time:</label>
+                <input type="time" class="form-control" id="time" name="time" value="{{ old('time', $event->time) }}">
+            </div>
 
-                <span>Event location: </span>
-                <input type="text" placeholder="Enter event location" name="location"
+            <div class="mb-3">
+                <label for="location" class="form-label">Event Location:</label>
+                <input type="text" class="form-control" id="location" name="location" placeholder="Enter event location"
                     value="{{ old('location', $event->location) }}">
-                <br><br>
+            </div>
 
-                <span>Currently uploaded image: </span>
+            <div class="mb-3">
+                <label for="pre_image" class="form-label">Currently Uploaded Image:</label>
                 <input type="text" name="pre_image" value="{{ $event->image }}" hidden>
-                <img src="{{ asset('storage/' . $event->image) }}" alt="Image" style="max-width: 200px;">
-                <br><br>
+                <img src="{{ asset('storage/' . $event->image) }}" alt="Image" class="img-fluid"
+                    style="max-width: 200px;">
+            </div>
 
-                <span>If you want to change the current image, click 👉 : </span>
-                <input type="file" name="image" id="image">
-                <br><br>
+            <div class="mb-3">
+                <label for="image" class="form-label">Change Event Image:</label>
+                <input type="file" class="form-control" id="image" name="image">
+            </div>
 
-                <button type="submit">Update Event</button>
-            </form>
-
-        </div>
-    </center>
+            <button type="submit" class="btn btn-primary">Update Event</button>
+        </form>
+    </div>
 </body>
 
 </html>
